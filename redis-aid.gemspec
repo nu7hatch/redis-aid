@@ -1,6 +1,6 @@
 # -*- ruby -*-
 $:.unshift(File.expand_path('../lib', __FILE__))
-require 'redis-aid'
+require 'redis/aid/version'
 
 Gem::Specification.new do |s|
   s.name             = 'redis-aid'

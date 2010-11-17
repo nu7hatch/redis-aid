@@ -3,7 +3,7 @@ $:.unshift(File.expand_path('../lib', __FILE__))
 
 require 'rspec/core/rake_task'
 require 'rake/rdoctask'
-require 'redis-aid'
+require 'redis/aid/version'
 
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.pattern = 'spec/**/*_spec.rb'
