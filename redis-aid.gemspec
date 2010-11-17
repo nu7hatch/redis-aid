@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.homepage         = 'http://github.com/nu7hatch/redis-aid'
   s.email            = ['chris@nu7hat.ch']
   s.authors          = ['Chris Kowalik']
-  s.summary          = %q{Flexible access control mechanism!}
+  s.summary          = %q{The Redis first aid!}
   s.description      = %q{Small lib which helps with extending your classes or modules with redis (and nest) goodies.}
   s.files            = `git ls-files`.split("\n")
   s.test_files       = `git ls-files -- {spec}/*`.split("\n")
