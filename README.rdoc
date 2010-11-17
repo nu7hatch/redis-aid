@@ -37,7 +37,7 @@ Powered by nest:
       redis[:spam][:eggs].get # => value of 'foo:spam:eggs'
     end
 
-Custom redis connection? No problem:
+Custom redis connection for each class? No problem:
 
   class MyThirdClass
     include Redis::Aid
