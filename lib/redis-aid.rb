@@ -29,11 +29,7 @@ class Redis
       end
 
       def ns=(namespace)
-        @ns = Nest.new(namespace)
-      end
-
-      def ns
-        @ns ||= Nest.new
+        @redis = Nest.new(namespace, redis)
       end
     end # ClassMethods
     
@@ -41,16 +37,12 @@ class Redis
       def redis
         self.class.redis
       end
-
-      def ns
-        self.class.ns
-      end
     end # InstanceMethods
     
-    def self.included(receiver) # :nodoc:
-      receiver.send :extend, ClassMethods
-      receiver.send :include, InstanceMethods
-      receiver.instance_variable_set("@ns", @ns) and @ns = nil if @ns
+    def self.included(base) # :nodoc:
+      base.send :extend, ClassMethods
+      base.send :include, InstanceMethods
+      base.ns = @ns and @ns = nil if @ns 
     end
 
   end # Aid

@@ -30,11 +30,11 @@ Powered by nest:
     include Redis::Aid::Ns(:foo)
 
     def bar
-      redis[:bar].get # => value of 'foo.bar'
+      redis[:bar].get # => value of 'foo:bar'
     end
 
     def spam_and_eggs
-      redis[:spam][:eggs].get # => value of 'foo.spam.eggs'
+      redis[:spam][:eggs].get # => value of 'foo:spam:eggs'
     end
 
 Custom redis connection? No problem:
