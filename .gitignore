@@ -1,0 +1,11 @@
+.DS_Store
+*.tmproj
+tmtags
+*~
+\#*
+.\#*
+*.swp
+coverage
+rdoc
+pkg
+*.rdb
