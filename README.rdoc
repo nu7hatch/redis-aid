@@ -44,7 +44,7 @@ Custom redis connection for each class? No problem:
     self.redis = Redis.connect(:host => "host.com")
   end
 
-== Redis on Rails
+=== Redis on Rails
 
 Redis Aid provides Railtie and configuration generator for Ruby On Rails (only Rails 3).
 All you have to do is add redis-aid to your `Gemfile`:
@@ -66,7 +66,7 @@ You have also access to redis client object via your application instance, eg:
 
   Rails.application.redis # => #<Redis client v2.1.1 connected ...>
 
-== Integration with Redis Objects gem
+=== Integration with Redis Objects gem
 
 You can also integrate Redis Aid with Redis Objects very easy:
 
