@@ -10,8 +10,6 @@ class Redis
       if File.exists?(redis_config_file)
         redis_config = HashWithIndifferentAccess.new(YAML.load_file(redis_config_file))
         app.redis = Redis.new(redis_config[Rails.env]) if redis_config[Rails.env]
-      else 
-        puts "No Redis configuration found. Run `rails g redis:install` to generate one."
       end
     end
 
