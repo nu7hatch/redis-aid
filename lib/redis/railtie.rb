@@ -4,7 +4,7 @@ class Redis
   class Railtie < Rails::Railtie
     
     initializer "redis_aid.configure_rails_initialization" do |app|
-      app.send :include, Redis::Aid
+      app.class.send :include, Redis::Aid
       redis_config_file = Rails.root.join('config/redis.yml')
       
       if File.exists?(redis_config_file)
