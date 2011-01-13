@@ -1,10 +1,14 @@
-require 'redis/generators'
+require 'rails/generators/base'
 
 class Redis
   module Generators
-    class InstallGenerator < Base
+    class InstallGenerator < ::Rails::Generators::Base
 
-      #class_option :host, :type => :string, :required => false, :default => 'localhost', :desc => "Name of the Redis host use" 
+      def self.source_root
+        @_redis_source_root ||= File.expand_path(File.join("../templates"), __FILE__)
+      end
+      
+      class_option :host, :type => :string, :required => false, :default => 'localhost', :desc => "Name of the Redis host use" 
 
       def create_files
         template 'redis.yml.tt', "config/redis.yml"
