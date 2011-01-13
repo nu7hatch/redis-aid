@@ -1,0 +1,18 @@
+defaults: &defaults
+  host: <%= host %>
+  port: 6379
+
+development:
+  <<: *defaults
+  db: 1
+
+test:
+  <<: *defaults
+  db: 2
+
+production:
+  <<: *defaults
+  host: <%= ENV['REDIS_HOST'] %>
+  port: <%= ENV['REDIS_PORT'] %>
+  db: <%= ENV['REDIS_DB'] %>
+  password: <%= ENV['REDIS_PASSWORD'] %>
