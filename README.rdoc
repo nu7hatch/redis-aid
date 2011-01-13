@@ -41,9 +41,58 @@ Custom redis connection for each class? No problem:
 
   class MyThirdClass
     include Redis::Aid
-    redis = Redis.connect(:host => "host.com")
+    self.redis = Redis.connect(:host => "host.com")
   end
 
+== Redis on Rails
+
+Redis Aid provides Railtie and configuration generator for Ruby On Rails (only Rails 3).
+All you have to do is add redis-aid to your `Gemfile`:
+
+  gem 'redis-aid', '>= 0.1'
+
+And require railtile within your `config/application.rb`:
+
+  require File.expand_path('../boot', __FILE__)
+
+  require "rails/all"
+  require "redis/railtie"
+  ...
+
+Now you can generate configuration files with command:
+
+  $ rails generate redis:install
+
+And that's all. Now you can use redis-powered classes anywhere you want to.
+You have also access to redis client object via your application instance, eg:
+
+  Rails.application.redis # => #<Redis client v2.1.1 connected ...>
+
+== Integration with Redis Objects gem
+
+You can also integrate Redis Aid with Redis Objects very easy:
+
+  Redis::Aid.redis = Redis.new(:host => 'myhost.com', :db => 10)
+
+  class Foo
+    include Redis::Objects
+    include Redis::Aid
+
+    # ...
+  end
+
+  class Bar
+    include Redis::Objects
+    include Redis::Aid::Ns(:bar)
+
+    # ...
+  end
+
+Remember that includes order is important here. You have to include
+<tt>Redis::Aid</tt> last, then it will overwrite <tt>#redis</tt> and
+<tt>#redis=</tt> methods previously declared and used by <tt>Redis::Objects</tt>
+module. 
+  
 == Note on Patches/Pull Requests
  
 * Fork the project.
