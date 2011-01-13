@@ -9,7 +9,7 @@ class Redis
       
       if File.exists?(redis_config_file)
         redis_config = HashWithIndifferentAccess.new(YAML.load_file(redis_config_file))
-        app.class.redis = Redis.new(redis_config[Rails.env]) if redis_config[Rails.env]
+        Redis::Aid.redis = Redis.new(redis_config[Rails.env]) if redis_config[Rails.env]
       end
     end
 
