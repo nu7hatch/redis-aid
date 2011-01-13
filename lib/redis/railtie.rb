@@ -1,4 +1,5 @@
 require 'rails'
+require 'redis/aid'
 
 class Redis
   class Railtie < Rails::Railtie
