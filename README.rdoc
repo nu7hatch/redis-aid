@@ -51,14 +51,12 @@ All you have to do is add redis-aid to your `Gemfile`:
 
   gem 'redis-aid', '>= 0.1'
 
-And require railtile within your `config/application.rb`:
-
-  require File.expand_path('../boot', __FILE__)
+and require railtie within your `config/application.rb`:
 
   require "rails/all"
   require "redis/railtie"
-  ...
-
+  # ...
+  
 Now you can generate configuration files with command:
 
   $ rails generate redis:install
