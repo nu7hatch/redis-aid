@@ -5,7 +5,7 @@ class Redis
     class Base < Rails::Generators::NamedBase
 
       def self.source_root
-        @_redis_aid_source_root ||= File.expand_path(File.join("../generators/", generator_name, 'templates'))
+        @_redis_aid_source_root ||= File.expand_path(File.join("../generators/", generator_name, 'templates'), __FILE__)
       end
 
     end # Base

@@ -4,7 +4,7 @@ class Redis
   module Generators
     class InstallGenerator < Base
 
-      class_option :host, :type => :string, :required => false, :default => 'localhost', :desc => "Name of the Redis host use" 
+      #class_option :host, :type => :string, :required => false, :default => 'localhost', :desc => "Name of the Redis host use" 
 
       def create_files
         template 'redis.yml.tt', "config/redis.yml"
