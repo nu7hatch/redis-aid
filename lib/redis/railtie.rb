@@ -16,8 +16,7 @@ class Redis
     end
 
     generators do
-      require "redis/generators/config_generator.rb"
-      require "redis/generators/model_generator.rb"
+      require "redis/generators/install_generator.rb"
     end
     
   end # Railtie
